@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité – Street Workout Buddy</title>
+<meta name="description" content="Politique de confidentialité de Street Workout Buddy. Découvrez comment nous protégeons vos données personnelles.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FFB400;
+    --orange-light: #FFCE55;
+    --orange-dark: #FF8800;
+    --cream: #FFFBF0;
+    --sand: #FFEFCF;
+    --brown: #7A4F00;
+    --brown-mid: #A86A00;
+    --white: #FFFFFF;
+    --black: #1A1200;
+    --gray-1: #FFF8E8;
+    --gray-2: #F0E6C8;
+    --gray-3: #D4C090;
+    --gray-4: #8A7040;
+    --font-head: 'Nunito', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+    --shadow-sm: 0 2px 8px rgba(160,100,0,0.12);
+    --shadow-md: 0 4px 20px rgba(160,100,0,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: var(--font-body);
+    color: var(--black);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--orange-dark);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .nav-logo span {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 17px;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .back-home {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+  }
+  .back-home:hover { background: rgba(255,255,255,0.15); color: white; }
+  .lang-btn {
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 12px;
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.3); }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: var(--orange-dark);
+    padding: 60px 5% 80px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-family: var(--font-head);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .page-header p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── CONTENT ─── */
+  .content-wrapper {
+    max-width: 900px;
+    margin: -40px auto 0;
+    padding: 0 5% 80px;
+  }
+  .content-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-2);
+  }
+  .legal-date {
+    font-size: 13px;
+    color: var(--gray-4);
+    font-weight: 700;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box h2 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 40px 0 16px;
+  }
+  .content-box h2:first-of-type {
+    margin-top: 0;
+  }
+  .content-box h3 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 16px;
+  }
+  .content-box ul {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  .content-box ul li {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 8px;
+  }
+  .content-box a {
+    color: var(--orange-dark);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .content-box a:hover {
+    text-decoration: underline;
+  }
+  .content-box strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ─── NAV TABS ─── */
+  .legal-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .legal-nav a {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--gray-2);
+    background: var(--gray-1);
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .legal-nav a.active, .legal-nav a:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 5%;
+    text-align: center;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .footer-links a {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gray-4);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--gray-4);
+    border-top: 1px solid #333;
+    padding-top: 16px;
+  }
+
+  /* ─── LANG TOGGLE ─── */
+  .inline-fr, .inline-en { display: none; }
+  .inline-fr { display: inline; }
+  [data-lang-content] { display: none; }
+  [data-lang-content="fr"] { display: block; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .content-box { padding: 32px 24px; }
+    .legal-nav { flex-direction: column; }
+    .legal-nav a { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" alt="Buddy" onerror="this.style.display='none'">
+    <span>Street Workout Buddy</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-home">
+      <span class="inline-fr">← Accueil</span>
+      <span class="inline-en">← Home</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇬🇧 EN</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>
+    <span class="inline-fr">🔒 Politique de confidentialité</span>
+    <span class="inline-en">🔒 Privacy Policy</span>
+  </h1>
+  <p>
+    <span class="inline-fr">Découvrez comment nous protégeons et utilisons vos données personnelles.</span>
+    <span class="inline-en">Discover how we protect and use your personal data.</span>
+  </p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+  <div class="legal-nav">
+    <a href="privacy.html" class="active">
+      <span class="inline-fr">🔒 Confidentialité</span>
+      <span class="inline-en">🔒 Privacy</span>
+    </a>
+    <a href="terms.html">
+      <span class="inline-fr">📋 CGU</span>
+      <span class="inline-en">📋 Terms</span>
+    </a>
+    <a href="legal.html">
+      <span class="inline-fr">⚖️ Mentions légales</span>
+      <span class="inline-en">⚖️ Legal notice</span>
+    </a>
+  </div>
+
+  <div class="content-box">
+    <!-- VERSION FRANÇAISE -->
+    <div data-lang-content="fr">
+      <p class="legal-date">Dernière mise à jour : juin 2025</p>
+
+      <h3>1. Responsable du traitement</h3>
+      <p>L'application Street Workout Buddy est éditée par Nicolas Dimitriu, micro-entrepreneur (ci-après « nous »). Contact : <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></p>
+
+      <h3>2. Données collectées</h3>
+      <p>Dans le cadre de l'utilisation de l'application, nous collectons les données suivantes :</p>
+      <ul>
+        <li><strong>Données de profil :</strong> adresse e-mail, tranche d'âge, sexe, niveau de pratique, objectifs sportifs, exercices maîtrisés.</li>
+        <li><strong>Données de localisation :</strong> position géographique (pour la recherche de parcs), collectée uniquement avec votre autorisation.</li>
+        <li><strong>Données d'activité :</strong> historique des séances effectuées, exercices réalisés, statistiques de progression, streaks.</li>
+        <li><strong>Commentaires :</strong> avis et notes laissés sur les parcs (sans photo).</li>
+        <li><strong>Données de paiement :</strong> gérées directement par Apple (abonnement in-app). Nous ne stockons aucune donnée bancaire.</li>
+      </ul>
+
+      <h3>3. Finalités du traitement</h3>
+      <ul>
+        <li>Fournir et personnaliser les fonctionnalités de l'application</li>
+        <li>Adapter les programmes et séances à votre niveau et objectifs</li>
+        <li>Afficher les parcs de street workout à proximité</li>
+        <li>Gérer les abonnements et accès premium</li>
+        <li>Améliorer l'application via l'analyse d'usage anonymisée</li>
+      </ul>
+
+      <h3>4. Services tiers</h3>
+      <p>L'application utilise les services tiers suivants, chacun disposant de sa propre politique de confidentialité :</p>
+      <ul>
+        <li><strong>Supabase</strong> – Authentification et stockage des données utilisateur (<a href="https://supabase.com/privacy" target="_blank">politique de confidentialité</a>)</li>
+        <li><strong>RevenueCat</strong> – Gestion des abonnements in-app (<a href="https://www.revenuecat.com/privacy" target="_blank">politique de confidentialité</a>)</li>
+        <li><strong>Apple App Store</strong> – Distribution et paiement (<a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank">politique de confidentialité</a>)</li>
+      </ul>
+
+      <h3>5. Durée de conservation</h3>
+      <p>Vos données sont conservées pendant toute la durée de votre compte. Après suppression du compte, les données sont effacées dans un délai de 30 jours, sauf obligation légale contraire.</p>
+
+      <h3>6. Vos droits (RGPD)</h3>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+      <ul>
+        <li>Droit d'accès à vos données personnelles</li>
+        <li>Droit de rectification des données inexactes</li>
+        <li>Droit à l'effacement (« droit à l'oubli »)</li>
+        <li>Droit à la portabilité de vos données</li>
+        <li>Droit d'opposition au traitement</li>
+      </ul>
+      <p>Pour exercer vos droits, contactez-nous à : <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a>. Nous nous engageons à répondre dans un délai de 30 jours.</p>
+
+      <h3>7. Mineurs</h3>
+      <p>L'application est accessible aux utilisateurs âgés de 13 ans et plus. Les utilisateurs entre 13 et 16 ans doivent obtenir l'accord d'un parent ou tuteur légal avant d'utiliser l'application.</p>
+
+      <h3>8. Sécurité</h3>
+      <p>Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données (chiffrement en transit via HTTPS, authentification sécurisée via Supabase). Aucun système n'étant infaillible, nous ne pouvons garantir une sécurité absolue.</p>
+
+      <h3>9. Modifications</h3>
+      <p>Cette politique peut être mise à jour. Toute modification substantielle vous sera notifiée par e-mail ou via une notification dans l'application.</p>
+    </div>
+
+    <!-- ENGLISH VERSION -->
+    <div data-lang-content="en">
+      <p class="legal-date">Last updated: June 2025</p>
+
+      <h3>1. Data controller</h3>
+      <p>Street Workout Buddy is published by Nicolas Dimitriu, sole trader (hereinafter "we"). Contact: <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></p>
+
+      <h3>2. Data collected</h3>
+      <p>When you use the app, we collect the following data:</p>
+      <ul>
+        <li><strong>Profile data:</strong> email address, age range, gender, fitness level, sport goals, mastered exercises.</li>
+        <li><strong>Location data:</strong> geographic position (to find nearby parks), collected only with your permission.</li>
+        <li><strong>Activity data:</strong> session history, exercises completed, progress statistics, streaks.</li>
+        <li><strong>Comments:</strong> park reviews and ratings (no photos).</li>
+        <li><strong>Payment data:</strong> handled directly by Apple (in-app subscription). We store no banking information.</li>
+      </ul>
+
+      <h3>3. Purposes of processing</h3>
+      <ul>
+        <li>Provide and personalise app features</li>
+        <li>Adapt programs and sessions to your level and goals</li>
+        <li>Display nearby street workout parks</li>
+        <li>Manage subscriptions and premium access</li>
+        <li>Improve the app through anonymised usage analysis</li>
+      </ul>
+
+      <h3>4. Third-party services</h3>
+      <p>The app uses the following third-party services, each with its own privacy policy:</p>
+      <ul>
+        <li><strong>Supabase</strong> – Authentication and user data storage (<a href="https://supabase.com/privacy" target="_blank">privacy policy</a>)</li>
+        <li><strong>RevenueCat</strong> – In-app subscription management (<a href="https://www.revenuecat.com/privacy" target="_blank">privacy policy</a>)</li>
+        <li><strong>Apple App Store</strong> – Distribution and payment (<a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank">privacy policy</a>)</li>
+      </ul>
+
+      <h3>5. Data retention</h3>
+      <p>Your data is retained for as long as your account exists. Upon account deletion, data is erased within 30 days, unless otherwise required by law.</p>
+
+      <h3>6. Your rights (GDPR)</h3>
+      <p>Under the General Data Protection Regulation (GDPR), you have the following rights:</p>
+      <ul>
+        <li>Right of access to your personal data</li>
+        <li>Right to rectification of inaccurate data</li>
+        <li>Right to erasure ("right to be forgotten")</li>
+        <li>Right to data portability</li>
+        <li>Right to object to processing</li>
+      </ul>
+      <p>To exercise your rights, contact us at: <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a>. We commit to responding within 30 days.</p>
+
+      <h3>7. Minors</h3>
+      <p>The app is accessible to users aged 13 and over. Users between 13 and 16 must obtain parental or legal guardian consent before using the app.</p>
+
+      <h3>8. Security</h3>
+      <p>We implement appropriate technical measures to protect your data (in-transit encryption via HTTPS, secure authentication via Supabase). As no system is infallible, we cannot guarantee absolute security.</p>
+
+      <h3>9. Changes</h3>
+      <p>This policy may be updated. Any material change will be notified to you by email or via an in-app notification.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">
+      <span class="inline-fr">Accueil</span>
+      <span class="inline-en">Home</span>
+    </a>
+    <a href="privacy.html">
+      <span class="inline-fr">Confidentialité</span>
+      <span class="inline-en">Privacy</span>
+    </a>
+    <a href="terms.html">
+      <span class="inline-fr">CGU</span>
+      <span class="inline-en">Terms</span>
+    </a>
+    <a href="legal.html">
+      <span class="inline-fr">Mentions légales</span>
+      <span class="inline-en">Legal notice</span>
+    </a>
+    <a href="mailto:nicolas.dimitriu@yahoo.fr">Contact</a>
+  </div>
+  <div class="footer-copy">
+    <span class="inline-fr">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+    <span class="inline-en">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+  </div>
+</footer>
+
+<script>
+  let currentLang = 'fr';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    const btn = document.getElementById('langBtn');
+    btn.textContent = currentLang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
+
+    document.querySelectorAll('.inline-fr').forEach(el => {
+      el.style.display = currentLang === 'fr' ? 'inline' : 'none';
+    });
+    document.querySelectorAll('.inline-en').forEach(el => {
+      el.style.display = currentLang === 'en' ? 'inline' : 'none';
+    });
+
+    document.querySelectorAll('[data-lang-content]').forEach(el => {
+      el.style.display = 'none';
+    });
+    const activeContent = document.querySelector(`[data-lang-content="${currentLang}"]`);
+    if (activeContent) {
+      activeContent.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales – Street Workout Buddy</title>
+<meta name="description" content="Mentions légales de Street Workout Buddy. Informations sur l'éditeur et l'hébergement de l'application.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FFB400;
+    --orange-light: #FFCE55;
+    --orange-dark: #FF8800;
+    --cream: #FFFBF0;
+    --sand: #FFEFCF;
+    --brown: #7A4F00;
+    --brown-mid: #A86A00;
+    --white: #FFFFFF;
+    --black: #1A1200;
+    --gray-1: #FFF8E8;
+    --gray-2: #F0E6C8;
+    --gray-3: #D4C090;
+    --gray-4: #8A7040;
+    --font-head: 'Nunito', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+    --shadow-sm: 0 2px 8px rgba(160,100,0,0.12);
+    --shadow-md: 0 4px 20px rgba(160,100,0,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: var(--font-body);
+    color: var(--black);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--orange-dark);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .nav-logo span {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 17px;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .back-home {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+  }
+  .back-home:hover { background: rgba(255,255,255,0.15); color: white; }
+  .lang-btn {
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 12px;
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.3); }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: var(--orange-dark);
+    padding: 60px 5% 80px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-family: var(--font-head);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .page-header p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── CONTENT ─── */
+  .content-wrapper {
+    max-width: 900px;
+    margin: -40px auto 0;
+    padding: 0 5% 80px;
+  }
+  .content-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-2);
+  }
+  .legal-date {
+    font-size: 13px;
+    color: var(--gray-4);
+    font-weight: 700;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box h2 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 40px 0 16px;
+  }
+  .content-box h2:first-of-type {
+    margin-top: 0;
+  }
+  .content-box h3 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 16px;
+  }
+  .content-box ul {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  .content-box ul li {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 8px;
+  }
+  .content-box a {
+    color: var(--orange-dark);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .content-box a:hover {
+    text-decoration: underline;
+  }
+  .content-box strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ─── NAV TABS ─── */
+  .legal-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .legal-nav a {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--gray-2);
+    background: var(--gray-1);
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .legal-nav a.active, .legal-nav a:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+  }
+
+  /* ─── ALERT BOX ─── */
+  .alert-box {
+    background: var(--sand);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .alert-box p {
+    margin: 0;
+    font-style: italic;
+    color: var(--brown-mid);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 5%;
+    text-align: center;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .footer-links a {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gray-4);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--gray-4);
+    border-top: 1px solid #333;
+    padding-top: 16px;
+  }
+
+  /* ─── LANG TOGGLE ─── */
+  .inline-fr, .inline-en { display: none; }
+  .inline-fr { display: inline; }
+  [data-lang-content] { display: none; }
+  [data-lang-content="fr"] { display: block; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .content-box { padding: 32px 24px; }
+    .legal-nav { flex-direction: column; }
+    .legal-nav a { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" alt="Buddy" onerror="this.style.display='none'">
+    <span>Street Workout Buddy</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-home">
+      <span class="inline-fr">← Accueil</span>
+      <span class="inline-en">← Home</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇬🇧 EN</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>
+    <span class="inline-fr">⚖️ Mentions légales</span>
+    <span class="inline-en">⚖️ Legal Notice</span>
+  </h1>
+  <p>
+    <span class="inline-fr">Informations légales sur l'éditeur et l'hébergement de l'application.</span>
+    <span class="inline-en">Legal information about the publisher and hosting of the app.</span>
+  </p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+  <div class="legal-nav">
+    <a href="privacy.html">
+      <span class="inline-fr">🔒 Confidentialité</span>
+      <span class="inline-en">🔒 Privacy</span>
+    </a>
+    <a href="terms.html">
+      <span class="inline-fr">📋 CGU</span>
+      <span class="inline-en">📋 Terms</span>
+    </a>
+    <a href="legal.html" class="active">
+      <span class="inline-fr">⚖️ Mentions légales</span>
+      <span class="inline-en">⚖️ Legal notice</span>
+    </a>
+  </div>
+
+  <div class="content-box">
+    <!-- VERSION FRANÇAISE -->
+    <div data-lang-content="fr">
+      <p class="legal-date">Dernière mise à jour : juin 2025</p>
+
+      <div class="alert-box">
+        <p><strong>Note :</strong> Certaines informations ci-dessous sont à compléter avec vos données officielles (SIRET, adresse, etc.).</p>
+      </div>
+
+      <h3>Éditeur de l'application</h3>
+      <ul>
+        <li><strong>Nom :</strong> Nicolas Dimitriu</li>
+        <li><strong>Statut :</strong> Micro-entrepreneur</li>
+        <li><strong>Raison sociale :</strong> [NOM MICRO-ENTREPRISE]</li>
+        <li><strong>SIRET :</strong> [NUMÉRO SIRET]</li>
+        <li><strong>Adresse :</strong> [ADRESSE COMPLÈTE]</li>
+        <li><strong>E-mail :</strong> <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></li>
+      </ul>
+
+      <h3>Hébergement de la page web</h3>
+      <ul>
+        <li><strong>Hébergeur :</strong> GitHub Pages (GitHub, Inc.)</li>
+        <li><strong>Adresse :</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</li>
+        <li><strong>Site :</strong> <a href="https://pages.github.com" target="_blank">pages.github.com</a></li>
+      </ul>
+
+      <h3>Distribution de l'application</h3>
+      <ul>
+        <li><strong>Plateforme :</strong> Apple App Store</li>
+        <li><strong>Exploitant :</strong> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
+      </ul>
+
+      <h3>Directeur de la publication</h3>
+      <p>Nicolas Dimitriu, en sa qualité d'éditeur de l'application Street Workout Buddy.</p>
+
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble des éléments de l'application Street Workout Buddy (design, mascotte Buddy, contenus, code, logo) sont la propriété exclusive de Nicolas Dimitriu. Toute reproduction, même partielle, est strictement interdite sans autorisation préalable écrite.</p>
+
+      <h3>Responsabilité</h3>
+      <p>Nicolas Dimitriu s'efforce d'assurer l'exactitude des informations diffusées sur cette page et dans l'application, mais ne peut garantir leur exhaustivité ni leur mise à jour permanente. Nicolas Dimitriu décline toute responsabilité en cas d'erreur ou d'omission.</p>
+
+      <h3>Données personnelles</h3>
+      <p>Pour toute information concernant le traitement de vos données personnelles, veuillez consulter notre <a href="privacy.html">Politique de confidentialité</a>.</p>
+
+      <h3>Contact</h3>
+      <p>Pour toute question concernant ces mentions légales, vous pouvez nous contacter à l'adresse : <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></p>
+    </div>
+
+    <!-- ENGLISH VERSION -->
+    <div data-lang-content="en">
+      <p class="legal-date">Last updated: June 2025</p>
+
+      <div class="alert-box">
+        <p><strong>Note:</strong> Some information below needs to be completed with your official data (SIRET number, address, etc.).</p>
+      </div>
+
+      <h3>App publisher</h3>
+      <ul>
+        <li><strong>Name:</strong> Nicolas Dimitriu</li>
+        <li><strong>Status:</strong> Sole trader (micro-entrepreneur)</li>
+        <li><strong>Business name:</strong> [BUSINESS NAME]</li>
+        <li><strong>SIRET:</strong> [SIRET NUMBER]</li>
+        <li><strong>Address:</strong> [FULL ADDRESS]</li>
+        <li><strong>Email:</strong> <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></li>
+      </ul>
+
+      <h3>Web hosting</h3>
+      <ul>
+        <li><strong>Host:</strong> GitHub Pages (GitHub, Inc.)</li>
+        <li><strong>Address:</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</li>
+        <li><strong>Website:</strong> <a href="https://pages.github.com" target="_blank">pages.github.com</a></li>
+      </ul>
+
+      <h3>App distribution</h3>
+      <ul>
+        <li><strong>Platform:</strong> Apple App Store</li>
+        <li><strong>Operator:</strong> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
+      </ul>
+
+      <h3>Publication director</h3>
+      <p>Nicolas Dimitriu, in his capacity as publisher of the Street Workout Buddy app.</p>
+
+      <h3>Intellectual property</h3>
+      <p>All elements of the Street Workout Buddy app (design, Buddy mascot, content, code, logo) are the exclusive property of Nicolas Dimitriu. Any reproduction, even partial, is strictly prohibited without prior written authorisation.</p>
+
+      <h3>Liability</h3>
+      <p>Nicolas Dimitriu endeavours to ensure the accuracy of information on this page and in the app, but cannot guarantee its completeness or permanent update. Nicolas Dimitriu disclaims all liability for any error or omission.</p>
+
+      <h3>Personal data</h3>
+      <p>For any information regarding the processing of your personal data, please consult our <a href="privacy.html">Privacy Policy</a>.</p>
+
+      <h3>Contact</h3>
+      <p>For any questions regarding this legal notice, you can contact us at: <a href="mailto:nicolas.dimitriu@yahoo.fr">nicolas.dimitriu@yahoo.fr</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">
+      <span class="inline-fr">Accueil</span>
+      <span class="inline-en">Home</span>
+    </a>
+    <a href="privacy.html">
+      <span class="inline-fr">Confidentialité</span>
+      <span class="inline-en">Privacy</span>
+    </a>
+    <a href="terms.html">
+      <span class="inline-fr">CGU</span>
+      <span class="inline-en">Terms</span>
+    </a>
+    <a href="legal.html">
+      <span class="inline-fr">Mentions légales</span>
+      <span class="inline-en">Legal notice</span>
+    </a>
+    <a href="mailto:nicolas.dimitriu@yahoo.fr">Contact</a>
+  </div>
+  <div class="footer-copy">
+    <span class="inline-fr">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+    <span class="inline-en">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+  </div>
+</footer>
+
+<script>
+  let currentLang = 'fr';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    const btn = document.getElementById('langBtn');
+    btn.textContent = currentLang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
+
+    document.querySelectorAll('.inline-fr').forEach(el => {
+      el.style.display = currentLang === 'fr' ? 'inline' : 'none';
+    });
+    document.querySelectorAll('.inline-en').forEach(el => {
+      el.style.display = currentLang === 'en' ? 'inline' : 'none';
+    });
+
+    document.querySelectorAll('[data-lang-content]').forEach(el => {
+      el.style.display = 'none';
+    });
+    const activeContent = document.querySelector(`[data-lang-content="${currentLang}"]`);
+    if (activeContent) {
+      activeContent.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>

@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Street Workout Buddy – Ton coach de rue</title>
+<meta name="description" content="Street Workout Buddy : trouve les parcs près de toi, suis tes séances, progresse avec des programmes adaptés. Ton coach street workout personnel.">
+<meta property="og:title" content="Street Workout Buddy – Ton coach de rue">
+<meta property="og:description" content="L'app qui révolutionne ton entraînement street workout. Parcs, tracking, programmes personnalisés.">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -100,6 +104,52 @@
     letter-spacing: 0.5px;
   }
   .lang-btn:hover { background: rgba(255,255,255,0.3); }
+
+  /* ─── MOBILE MENU ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--orange-dark);
+    padding: 20px 5%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    flex-direction: column;
+    gap: 12px;
+  }
+  .mobile-menu.active { display: flex; }
+  .mobile-menu a {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.1);
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.2); }
 
   /* ─── HERO ─── */
   .hero {
@@ -202,7 +252,7 @@
     line-height: 1.3;
   }
 
-  /* ─── FEATURES ─── */
+  /* ─── SECTIONS ─── */
   .section {
     padding: 80px 5%;
     max-width: 1200px;
@@ -314,81 +364,168 @@
     box-shadow: var(--shadow-sm);
   }
 
-  /* ─── LEGAL SECTION ─── */
-  .legal-section {
+  /* ─── FAQ ─── */
+  .faq-section {
     background: white;
     padding: 80px 5%;
-    border-top: 2px solid var(--gray-2);
   }
-  .legal-inner {
+  .faq-inner {
     max-width: 900px;
     margin: 0 auto;
   }
-  .legal-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .legal-tab {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 14px;
-    padding: 10px 22px;
-    border-radius: var(--radius-pill);
-    border: 2px solid var(--gray-2);
+  .faq-item {
     background: var(--gray-1);
-    color: var(--brown-mid);
-    cursor: pointer;
+    border: 2px solid var(--gray-2);
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+    overflow: hidden;
     transition: all 0.15s;
-    text-decoration: none;
   }
-  .legal-tab.active, .legal-tab:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: var(--black);
-  }
-  .legal-content { display: none; }
-  .legal-content.active { display: block; }
-
-  .legal-content h2 {
-    font-family: var(--font-head);
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--black);
-    margin-bottom: 6px;
-  }
-  .legal-content .legal-date {
-    font-size: 13px;
-    color: var(--gray-4);
-    font-weight: 700;
-    margin-bottom: 28px;
-  }
-  .legal-content h3 {
+  .faq-item:hover { border-color: var(--orange-light); }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px 24px;
+    background: none;
+    border: none;
     font-family: var(--font-head);
     font-size: 16px;
     font-weight: 900;
     color: var(--black);
-    margin: 28px 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--sand);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
   }
-  .legal-content p {
+  .faq-question:hover { color: var(--orange-dark); }
+  .faq-icon {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange-dark);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, padding 0.3s;
+    padding: 0 24px;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 24px 20px 24px;
+  }
+  .faq-answer p {
     font-size: 14px;
-    line-height: 1.75;
-    color: #4a3a10;
-    margin-bottom: 12px;
+    line-height: 1.7;
+    color: var(--brown);
   }
-  .legal-content ul {
-    padding-left: 20px;
-    margin-bottom: 12px;
+
+  /* ─── CONTACT SECTION ─── */
+  .contact-section {
+    background: var(--orange-dark);
+    padding: 80px 5%;
+    text-align: center;
   }
-  .legal-content ul li {
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .contact-section .section-label {
+    color: var(--orange-light);
+  }
+  .contact-section .section-title {
+    color: white;
+    margin-bottom: 16px;
+  }
+  .contact-section .section-subtitle {
+    color: rgba(255,255,255,0.85);
+    margin: 0 auto 40px;
+  }
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    color: var(--orange-dark);
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 18px;
+    padding: 18px 40px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
+  .contact-btn:active { transform: translateY(0); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+
+  /* ─── LEGAL PREVIEW ─── */
+  .legal-preview {
+    background: var(--gray-1);
+    padding: 60px 5%;
+    border-top: 2px solid var(--gray-2);
+  }
+  .legal-preview-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .legal-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .legal-link {
+    font-family: var(--font-head);
+    font-weight: 800;
     font-size: 14px;
-    line-height: 1.75;
-    color: #4a3a10;
-    margin-bottom: 4px;
+    padding: 12px 28px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--gray-3);
+    background: white;
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
+  .legal-link:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+    transform: translateY(-2px);
+  }
+
+  /* ─── BACK TO TOP ─── */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.15s;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .back-to-top:hover { transform: translateY(-4px); }
 
   /* ─── FOOTER ─── */
   footer {
@@ -447,18 +584,19 @@
     padding-top: 16px;
   }
 
-  /* ─── HIDDEN LANG ─── */
-  [data-lang] { display: none; }
-  [data-lang="fr"] { display: block; }
+  /* ─── LANG TOGGLE ─── */
   .inline-fr, .inline-en { display: none; }
   .inline-fr { display: inline; }
 
   /* ─── RESPONSIVE ─── */
-  @media (max-width: 640px) {
-    .nav-links a { display: none; }
+  @media (max-width: 768px) {
+    .nav-links a:not(.lang-btn) { display: none; }
+    .hamburger { display: flex; }
     .hero { padding: 60px 5% 70px; }
     .buddy-images img { width: 100px; height: 100px; }
     footer { flex-direction: column; align-items: flex-start; }
+    .legal-links { flex-direction: column; align-items: stretch; }
+    .legal-link { justify-content: center; }
   }
 </style>
 </head>
@@ -471,24 +609,50 @@
     <span>Street Workout Buddy</span>
   </a>
   <div class="nav-links">
-    <a href="#features" data-fr="Fonctionnalités" data-en="Features" class="nav-link-label">Fonctionnalités</a>
-    <a href="#buddy" data-fr="Buddy" data-en="Buddy" class="nav-link-label">Buddy</a>
-    <a href="#legal" data-fr="Légal" data-en="Legal" class="nav-link-label">Légal</a>
+    <a href="#features" class="nav-link-desktop">
+      <span class="inline-fr">Fonctionnalités</span>
+      <span class="inline-en">Features</span>
+    </a>
+    <a href="#buddy" class="nav-link-desktop">
+      <span class="inline-fr">Buddy</span>
+      <span class="inline-en">Buddy</span>
+    </a>
+    <a href="#faq" class="nav-link-desktop">FAQ</a>
+    <a href="#contact" class="nav-link-desktop">Contact</a>
     <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇬🇧 EN</button>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="toggleMobileMenu()">
+    <span class="inline-fr">Fonctionnalités</span>
+    <span class="inline-en">Features</span>
+  </a>
+  <a href="#buddy" onclick="toggleMobileMenu()">
+    <span class="inline-fr">Buddy</span>
+    <span class="inline-en">Buddy</span>
+  </a>
+  <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+  <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <div class="hero-badge">
-      <span><img src="icon.png" style="width:20px;height:20px;object-fit:cover;border-radius:5px;vertical-align:middle;"></span>
+      <span><img src="icon.png" style="width:20px;height:20px;object-fit:cover;border-radius:5px;vertical-align:middle;" onerror="this.style.display='none'"></span>
       <span class="inline-fr">Ton coach de rue t'attend</span>
       <span class="inline-en">Your street coach is waiting</span>
     </div>
     <h1>
-      <span class="inline-fr">Street Workout <span style="color:var(--orange-light)">Partout,</span><br>Sans Équipement</span>
-      <span class="inline-en">Street Workout <span style="color:var(--orange-light)">Anywhere,</span><br>No Equipment</span>
+      <span class="inline-fr">Street Workout <span>Partout,</span><br>Sans Équipement</span>
+      <span class="inline-en">Street Workout <span>Anywhere,</span><br>No Equipment</span>
     </h1>
     <p>
       <span class="inline-fr">Trouve les parcs près de toi, suis tes séances, suis des programmes adaptés à ton niveau — et laisse Buddy te motiver chaque jour.</span>
@@ -572,7 +736,7 @@
       </p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon"><img src="icon.png" style="width:30px;height:30px;object-fit:cover;border-radius:5px;vertical-align:middle;"></div>
+      <div class="feature-icon"><img src="icon.png" style="width:30px;height:30px;object-fit:cover;border-radius:5px;vertical-align:middle;" onerror="this.style.display='none'"></div>
       <h3>
         <span class="inline-fr">Buddy te motive</span>
         <span class="inline-en">Buddy motivates you</span>
@@ -611,8 +775,8 @@
         <span class="inline-en">The mascot</span>
       </div>
       <div class="section-title">
-        <span class="inline-fr">Rencontre Buddy <img src="icon.png" style="width:40px;height:40px;object-fit:cover;border-radius:5px;vertical-align:middle;"></span>
-        <span class="inline-en">Meet Buddy <img src="icon.png" style="width:20px;height:20px;object-fit:cover;border-radius:5px;vertical-align:middle;"></span>
+        <span class="inline-fr">Rencontre Buddy <img src="icon.png" style="width:40px;height:40px;object-fit:cover;border-radius:5px;vertical-align:middle;" onerror="this.style.display='none'"></span>
+        <span class="inline-en">Meet Buddy <img src="icon.png" style="width:40px;height:40px;object-fit:cover;border-radius:5px;vertical-align:middle;" onerror="this.style.display='none'"></span>
       </div>
       <p style="font-size:16px;color:var(--brown);font-weight:600;line-height:1.7;">
         <span class="inline-fr">Buddy est ton coach personnel — un chat orange motivé, lunettes vissées et sifflet autour du cou. Il est là à chaque séance pour te pousser à te dépasser, te féliciter quand tu perfomes, et te rappeler doucement quand tu commences à procrastiner.</span>
@@ -627,310 +791,180 @@
 </div>
 </div>
 
-<!-- LEGAL -->
-<div id="legal">
-<div class="legal-section">
-  <div class="legal-inner">
+<!-- FAQ -->
+<div id="faq">
+<div class="faq-section">
+  <div class="faq-inner">
     <div class="section-label">
-      <span class="inline-fr">Documents légaux</span>
-      <span class="inline-en">Legal documents</span>
+      <span class="inline-fr">Questions fréquentes</span>
+      <span class="inline-en">Frequently asked questions</span>
     </div>
-    <div class="section-title" style="margin-bottom:32px;">
-      <span class="inline-fr">Mentions légales & Politique de confidentialité</span>
-      <span class="inline-en">Legal notice & Privacy policy</span>
+    <div class="section-title">
+      <span class="inline-fr">Tout ce que tu veux savoir</span>
+      <span class="inline-en">Everything you want to know</span>
     </div>
-
-    <div class="legal-tabs" id="legalTabs">
-      <a class="legal-tab active" onclick="showTab('privacy')" href="#" data-fr="🔒 Politique de confidentialité" data-en="🔒 Privacy Policy" data-tab="privacy">🔒 Politique de confidentialité</a>
-      <a class="legal-tab" onclick="showTab('cgu')" href="#" data-fr="📋 Conditions d'utilisation" data-en="📋 Terms of Use" data-tab="cgu">📋 Conditions d'utilisation</a>
-      <a class="legal-tab" onclick="showTab('mentions')" href="#" data-fr="⚖️ Mentions légales" data-en="⚖️ Legal notice" data-tab="mentions">⚖️ Mentions légales</a>
+    <div class="section-subtitle">
+      <span class="inline-fr">Tu as une question ? On a sûrement la réponse.</span>
+      <span class="inline-en">Got a question? We probably have the answer.</span>
     </div>
 
-    <!-- PRIVACY FR -->
-    <div class="legal-content active" id="tab-privacy" data-lang-content="fr">
-      <h2>Politique de confidentialité</h2>
-      <p class="legal-date">Dernière mise à jour : juin 2025</p>
-
-      <h3>1. Responsable du traitement</h3>
-      <p>L'application Street Workout Buddy est éditée par Nicolas Dimitriu, micro-entrepreneur (ci-après « nous »). Contact : <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a></p>
-
-      <h3>2. Données collectées</h3>
-      <p>Dans le cadre de l'utilisation de l'application, nous collectons les données suivantes :</p>
-      <ul>
-        <li><strong>Données de profil :</strong> adresse e-mail, tranche d'âge, sexe, niveau de pratique, objectifs sportifs, exercices maîtrisés.</li>
-        <li><strong>Données de localisation :</strong> position géographique (pour la recherche de parcs), collectée uniquement avec votre autorisation.</li>
-        <li><strong>Données d'activité :</strong> historique des séances effectuées, exercices réalisés, statistiques de progression, streaks.</li>
-        <li><strong>Commentaires :</strong> avis et notes laissés sur les parcs (sans photo).</li>
-        <li><strong>Données de paiement :</strong> gérées directement par Apple (abonnement in-app). Nous ne stockons aucune donnée bancaire.</li>
-      </ul>
-
-      <h3>3. Finalités du traitement</h3>
-      <ul>
-        <li>Fournir et personnaliser les fonctionnalités de l'application</li>
-        <li>Adapter les programmes et séances à votre niveau et objectifs</li>
-        <li>Afficher les parcs de street workout à proximité</li>
-        <li>Gérer les abonnements et accès premium</li>
-        <li>Améliorer l'application via l'analyse d'usage anonymisée</li>
-      </ul>
-
-      <h3>4. Services tiers</h3>
-      <p>L'application utilise les services tiers suivants, chacun disposant de sa propre politique de confidentialité :</p>
-      <ul>
-        <li><strong>Supabase</strong> – Authentification et stockage des données utilisateur (<a href="https://supabase.com/privacy" target="_blank" style="color:var(--orange-dark);">politique de confidentialité</a>)</li>
-        <li><strong>RevenueCat</strong> – Gestion des abonnements in-app (<a href="https://www.revenuecat.com/privacy" target="_blank" style="color:var(--orange-dark);">politique de confidentialité</a>)</li>
-        <li><strong>Apple App Store</strong> – Distribution et paiement (<a href="https://www.apple.com/legal/privacy/fr-ww/" target="_blank" style="color:var(--orange-dark);">politique de confidentialité</a>)</li>
-      </ul>
-
-      <h3>5. Durée de conservation</h3>
-      <p>Vos données sont conservées pendant toute la durée de votre compte. Après suppression du compte, les données sont effacées dans un délai de 30 jours, sauf obligation légale contraire.</p>
-
-      <h3>6. Vos droits (RGPD)</h3>
-      <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-      <ul>
-        <li>Droit d'accès à vos données personnelles</li>
-        <li>Droit de rectification des données inexactes</li>
-        <li>Droit à l'effacement (« droit à l'oubli »)</li>
-        <li>Droit à la portabilité de vos données</li>
-        <li>Droit d'opposition au traitement</li>
-      </ul>
-      <p>Pour exercer vos droits, contactez-nous à : <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a>. Nous nous engageons à répondre dans un délai de 30 jours.</p>
-
-      <h3>7. Mineurs</h3>
-      <p>L'application est accessible aux utilisateurs âgés de 13 ans et plus. Les utilisateurs entre 13 et 16 ans doivent obtenir l'accord d'un parent ou tuteur légal avant d'utiliser l'application.</p>
-
-      <h3>8. Sécurité</h3>
-      <p>Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données (chiffrement en transit via HTTPS, authentification sécurisée via Supabase). Aucun système n'étant infaillible, nous ne pouvons garantir une sécurité absolue.</p>
-
-      <h3>9. Modifications</h3>
-      <p>Cette politique peut être mise à jour. Toute modification substantielle vous sera notifiée par e-mail ou via une notification dans l'application.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">L'app est-elle gratuite ?</span>
+          <span class="inline-en">Is the app free?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">Oui ! Street Workout Buddy est gratuite dans sa version de base. Tu peux accéder à la carte des parcs, suivre tes séances et profiter de programmes d'entraînement. Un abonnement premium optionnel débloque des programmes personnalisés et du contenu avancé.</span>
+          <span class="inline-en">Yes! Street Workout Buddy is free in its basic version. You can access the park map, track your sessions and enjoy training programs. An optional premium subscription unlocks personalised programs and advanced content.</span>
+        </p>
+      </div>
     </div>
 
-    <!-- PRIVACY EN -->
-    <div class="legal-content" id="tab-privacy-en" data-lang-content="en">
-      <h2>Privacy Policy</h2>
-      <p class="legal-date">Last updated: June 2025</p>
-
-      <h3>1. Data controller</h3>
-      <p>Street Workout Buddy is published by Nicolas Dimitriu, sole trader (hereinafter "we"). Contact: <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a></p>
-
-      <h3>2. Data collected</h3>
-      <p>When you use the app, we collect the following data:</p>
-      <ul>
-        <li><strong>Profile data:</strong> email address, age range, gender, fitness level, sport goals, mastered exercises.</li>
-        <li><strong>Location data:</strong> geographic position (to find nearby parks), collected only with your permission.</li>
-        <li><strong>Activity data:</strong> session history, exercises completed, progress statistics, streaks.</li>
-        <li><strong>Comments:</strong> park reviews and ratings (no photos).</li>
-        <li><strong>Payment data:</strong> handled directly by Apple (in-app subscription). We store no banking information.</li>
-      </ul>
-
-      <h3>3. Purposes of processing</h3>
-      <ul>
-        <li>Provide and personalise app features</li>
-        <li>Adapt programs and sessions to your level and goals</li>
-        <li>Display nearby street workout parks</li>
-        <li>Manage subscriptions and premium access</li>
-        <li>Improve the app through anonymised usage analysis</li>
-      </ul>
-
-      <h3>4. Third-party services</h3>
-      <p>The app uses the following third-party services, each with its own privacy policy:</p>
-      <ul>
-        <li><strong>Supabase</strong> – Authentication and user data storage (<a href="https://supabase.com/privacy" target="_blank" style="color:var(--orange-dark);">privacy policy</a>)</li>
-        <li><strong>RevenueCat</strong> – In-app subscription management (<a href="https://www.revenuecat.com/privacy" target="_blank" style="color:var(--orange-dark);">privacy policy</a>)</li>
-        <li><strong>Apple App Store</strong> – Distribution and payment (<a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" style="color:var(--orange-dark);">privacy policy</a>)</li>
-      </ul>
-
-      <h3>5. Data retention</h3>
-      <p>Your data is retained for as long as your account exists. Upon account deletion, data is erased within 30 days, unless otherwise required by law.</p>
-
-      <h3>6. Your rights (GDPR)</h3>
-      <p>Under the General Data Protection Regulation (GDPR), you have the following rights:</p>
-      <ul>
-        <li>Right of access to your personal data</li>
-        <li>Right to rectification of inaccurate data</li>
-        <li>Right to erasure ("right to be forgotten")</li>
-        <li>Right to data portability</li>
-        <li>Right to object to processing</li>
-      </ul>
-      <p>To exercise your rights, contact us at: <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a>. We commit to responding within 30 days.</p>
-
-      <h3>7. Minors</h3>
-      <p>The app is accessible to users aged 13 and over. Users between 13 and 16 must obtain parental or legal guardian consent before using the app.</p>
-
-      <h3>8. Security</h3>
-      <p>We implement appropriate technical measures to protect your data (in-transit encryption via HTTPS, secure authentication via Supabase). As no system is infallible, we cannot guarantee absolute security.</p>
-
-      <h3>9. Changes</h3>
-      <p>This policy may be updated. Any material change will be notified to you by email or via an in-app notification.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">Sur quelles plateformes est disponible l'app ?</span>
+          <span class="inline-en">Which platforms is the app available on?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">Street Workout Buddy sera d'abord disponible sur iOS (iPhone) via l'App Store. Une version Android est prévue ultérieurement.</span>
+          <span class="inline-en">Street Workout Buddy will first be available on iOS (iPhone) via the App Store. An Android version is planned for later.</span>
+        </p>
+      </div>
     </div>
 
-    <!-- CGU FR -->
-    <div class="legal-content" id="tab-cgu" data-lang-content="fr">
-      <h2>Conditions Générales d'Utilisation</h2>
-      <p class="legal-date">Dernière mise à jour : juin 2025</p>
-
-      <h3>1. Objet</h3>
-      <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application mobile Street Workout Buddy, éditée par Nicolas Dimitriu, micro-entrepreneur.</p>
-
-      <h3>2. Acceptation</h3>
-      <p>En téléchargeant ou en utilisant l'application, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
-
-      <h3>3. Accès à l'application</h3>
-      <p>L'application est accessible gratuitement dans sa version de base. Certaines fonctionnalités avancées (programmes personnalisés, contenu premium) nécessitent un abonnement mensuel ou annuel souscrit via l'App Store d'Apple.</p>
-
-      <h3>4. Abonnement premium</h3>
-      <ul>
-        <li>Les abonnements sont gérés et facturés par Apple via l'App Store.</li>
-        <li>Le renouvellement est automatique sauf résiliation au moins 24h avant la fin de la période en cours.</li>
-        <li>La gestion et résiliation de l'abonnement s'effectue dans les réglages de votre compte Apple.</li>
-        <li>Aucun remboursement n'est accordé pour les périodes déjà entamées, conformément à la politique Apple.</li>
-      </ul>
-
-      <h3>5. Conditions d'âge</h3>
-      <p>L'utilisation de l'application est réservée aux personnes âgées de 13 ans et plus. Les utilisateurs mineurs (entre 13 et 18 ans) doivent disposer de l'autorisation d'un parent ou tuteur légal.</p>
-
-      <h3>6. Règles d'utilisation</h3>
-      <p>En utilisant l'application, vous vous engagez à :</p>
-      <ul>
-        <li>Ne pas utiliser l'application à des fins illégales ou frauduleuses</li>
-        <li>Ne pas publier de commentaires offensants, trompeurs ou inappropriés</li>
-        <li>Ne pas tenter de pirater, décompiler ou altérer l'application</li>
-        <li>Consulter un médecin avant de commencer tout programme d'entraînement si nécessaire</li>
-      </ul>
-
-      <h3>7. Responsabilité</h3>
-      <p>Street Workout Buddy est une application d'aide à l'entraînement. Nicolas Dimitriu ne saurait être tenu responsable des blessures ou dommages résultant d'une mauvaise utilisation de l'application ou d'un entraînement inadapté à votre condition physique. Il est recommandé de consulter un professionnel de santé avant de débuter tout programme sportif.</p>
-
-      <h3>8. Propriété intellectuelle</h3>
-      <p>L'ensemble des contenus de l'application (textes, images, mascotte Buddy, programmes, interface) sont la propriété exclusive de Nicolas Dimitriu et sont protégés par le droit de la propriété intellectuelle. Toute reproduction sans autorisation est interdite.</p>
-
-      <h3>9. Modification des CGU</h3>
-      <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés par notification dans l'application ou par e-mail.</p>
-
-      <h3>10. Droit applicable</h3>
-      <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">Ai-je besoin d'équipement pour m'entraîner ?</span>
+          <span class="inline-en">Do I need equipment to train?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">Non ! Le street workout se pratique au poids du corps, sans équipement. Tu as juste besoin de barres, disponibles dans les parcs de street workout que l'app t'aide à trouver près de chez toi.</span>
+          <span class="inline-en">No! Street workout is practiced with bodyweight, no equipment needed. You just need bars, available in street workout parks that the app helps you find near you.</span>
+        </p>
+      </div>
     </div>
 
-    <!-- CGU EN -->
-    <div class="legal-content" id="tab-cgu-en" data-lang-content="en">
-      <h2>Terms of Use</h2>
-      <p class="legal-date">Last updated: June 2025</p>
-
-      <h3>1. Purpose</h3>
-      <p>These Terms of Use govern access to and use of the Street Workout Buddy mobile application, published by Nicolas Dimitriu, sole trader.</p>
-
-      <h3>2. Acceptance</h3>
-      <p>By downloading or using the app, you unconditionally accept these Terms. If you do not accept them, please do not use the app.</p>
-
-      <h3>3. Access</h3>
-      <p>The app is free in its basic version. Certain advanced features (personalised programs, premium content) require a monthly or annual subscription purchased through the Apple App Store.</p>
-
-      <h3>4. Premium subscription</h3>
-      <ul>
-        <li>Subscriptions are managed and billed by Apple via the App Store.</li>
-        <li>Renewal is automatic unless cancelled at least 24 hours before the end of the current period.</li>
-        <li>Subscription management and cancellation is done in your Apple account settings.</li>
-        <li>No refunds are issued for periods already started, in accordance with Apple's policy.</li>
-      </ul>
-
-      <h3>5. Age requirements</h3>
-      <p>Use of the app is restricted to persons aged 13 and over. Minor users (between 13 and 18) must have parental or legal guardian consent.</p>
-
-      <h3>6. Usage rules</h3>
-      <p>By using the app, you agree to:</p>
-      <ul>
-        <li>Not use the app for illegal or fraudulent purposes</li>
-        <li>Not post offensive, misleading or inappropriate comments</li>
-        <li>Not attempt to hack, decompile or alter the app</li>
-        <li>Consult a doctor before starting any training program if necessary</li>
-      </ul>
-
-      <h3>7. Liability</h3>
-      <p>Street Workout Buddy is a training assistance app. Nicolas Dimitriu cannot be held liable for injuries or damage resulting from misuse of the app or training unsuited to your physical condition. It is recommended to consult a healthcare professional before starting any sports program.</p>
-
-      <h3>8. Intellectual property</h3>
-      <p>All app content (texts, images, Buddy mascot, programs, interface) is the exclusive property of Nicolas Dimitriu and is protected by intellectual property law. Any reproduction without authorisation is prohibited.</p>
-
-      <h3>9. Changes to Terms</h3>
-      <p>We reserve the right to modify these Terms at any time. Users will be informed by in-app notification or email.</p>
-
-      <h3>10. Governing law</h3>
-      <p>These Terms are governed by French law. In case of dispute, French courts shall have sole jurisdiction.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">L'app est-elle adaptée aux débutants ?</span>
+          <span class="inline-en">Is the app suitable for beginners?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">Absolument ! Street Workout Buddy propose des programmes pour tous les niveaux. Que tu débutes ou que tu sois confirmé, tu trouveras des séances adaptées à ton niveau avec des explications détaillées pour chaque exercice.</span>
+          <span class="inline-en">Absolutely! Street Workout Buddy offers programs for all levels. Whether you're a beginner or advanced, you'll find sessions tailored to your level with detailed explanations for each exercise.</span>
+        </p>
+      </div>
     </div>
 
-    <!-- MENTIONS FR -->
-    <div class="legal-content" id="tab-mentions" data-lang-content="fr">
-      <h2>Mentions Légales</h2>
-      <p class="legal-date">Dernière mise à jour : juin 2025</p>
-
-      <h3>Éditeur de l'application</h3>
-      <ul>
-        <li><strong>Nom :</strong> Nicolas Dimitriu</li>
-        <li><strong>Statut :</strong> Micro-entrepreneur</li>
-        <li><strong>Raison sociale :</strong> [NOM MICRO-ENTREPRISE]</li>
-        <li><strong>SIRET :</strong> [NUMÉRO SIRET]</li>
-        <li><strong>Adresse :</strong> [ADRESSE]</li>
-        <li><strong>E-mail :</strong> <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a></li>
-      </ul>
-
-      <h3>Hébergement de la page web</h3>
-      <ul>
-        <li><strong>Hébergeur :</strong> GitHub Pages (GitHub, Inc.)</li>
-        <li><strong>Adresse :</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</li>
-        <li><strong>Site :</strong> <a href="https://pages.github.com" target="_blank" style="color:var(--orange-dark);">pages.github.com</a></li>
-      </ul>
-
-      <h3>Distribution de l'application</h3>
-      <ul>
-        <li><strong>Plateforme :</strong> Apple App Store</li>
-        <li><strong>Exploitant :</strong> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
-      </ul>
-
-      <h3>Propriété intellectuelle</h3>
-      <p>L'ensemble des éléments de l'application Street Workout Buddy (design, mascotte Buddy, contenus, code) sont la propriété de Nicolas Dimitriu. Toute reproduction, même partielle, est strictement interdite sans autorisation préalable écrite.</p>
-
-      <h3>Responsabilité</h3>
-      <p>Nicolas Dimitriu s'efforce d'assurer l'exactitude des informations diffusées sur cette page et dans l'application, mais ne peut garantir leur exhaustivité ni leur mise à jour permanente. Nicolas Dimitriu décline toute responsabilité en cas d'erreur ou d'omission.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">Comment fonctionne l'abonnement premium ?</span>
+          <span class="inline-en">How does the premium subscription work?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">L'abonnement premium est géré via l'App Store d'Apple. Il se renouvelle automatiquement chaque mois ou année selon ton choix. Tu peux l'annuler à tout moment dans les réglages de ton compte Apple, au moins 24h avant la fin de la période en cours.</span>
+          <span class="inline-en">The premium subscription is managed via the Apple App Store. It renews automatically every month or year depending on your choice. You can cancel it anytime in your Apple account settings, at least 24h before the end of the current period.</span>
+        </p>
+      </div>
     </div>
 
-    <!-- MENTIONS EN -->
-    <div class="legal-content" id="tab-mentions-en" data-lang-content="en">
-      <h2>Legal Notice</h2>
-      <p class="legal-date">Last updated: June 2025</p>
-
-      <h3>App publisher</h3>
-      <ul>
-        <li><strong>Name:</strong> Nicolas Dimitriu</li>
-        <li><strong>Status:</strong> Sole trader (micro-entrepreneur)</li>
-        <li><strong>Business name:</strong> [BUSINESS NAME]</li>
-        <li><strong>SIRET:</strong> [SIRET NUMBER]</li>
-        <li><strong>Address:</strong> [ADDRESS]</li>
-        <li><strong>Email:</strong> <a href="mailto:nicolas.dimitriu@yahoo.fr" style="color:var(--orange-dark);font-weight:700;">nicolas.dimitriu@yahoo.fr</a></li>
-      </ul>
-
-      <h3>Web hosting</h3>
-      <ul>
-        <li><strong>Host:</strong> GitHub Pages (GitHub, Inc.)</li>
-        <li><strong>Address:</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</li>
-        <li><strong>Website:</strong> <a href="https://pages.github.com" target="_blank" style="color:var(--orange-dark);">pages.github.com</a></li>
-      </ul>
-
-      <h3>App distribution</h3>
-      <ul>
-        <li><strong>Platform:</strong> Apple App Store</li>
-        <li><strong>Operator:</strong> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
-      </ul>
-
-      <h3>Intellectual property</h3>
-      <p>All elements of the Street Workout Buddy app (design, Buddy mascot, content, code) are the property of Nicolas Dimitriu. Any reproduction, even partial, is strictly prohibited without prior written authorisation.</p>
-
-      <h3>Liability</h3>
-      <p>Nicolas Dimitriu endeavours to ensure the accuracy of information on this page and in the app, but cannot guarantee its completeness or permanent update. Nicolas Dimitriu disclaims all liability for any error or omission.</p>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>
+          <span class="inline-fr">Mes données sont-elles sécurisées ?</span>
+          <span class="inline-en">Is my data secure?</span>
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          <span class="inline-fr">Oui, tes données sont protégées et chiffrées. Nous respectons le RGPD et ne vendons jamais tes informations personnelles. Consulte notre politique de confidentialité pour plus de détails.</span>
+          <span class="inline-en">Yes, your data is protected and encrypted. We respect GDPR and never sell your personal information. Check our privacy policy for more details.</span>
+        </p>
+      </div>
     </div>
 
   </div>
 </div>
 </div>
+
+<!-- CONTACT -->
+<div id="contact">
+<div class="contact-section">
+  <div class="contact-inner">
+    <div class="section-label">
+      <span class="inline-fr">On reste en contact</span>
+      <span class="inline-en">Let's stay in touch</span>
+    </div>
+    <div class="section-title">
+      <span class="inline-fr">Une question ? Une suggestion ?</span>
+      <span class="inline-en">A question? A suggestion?</span>
+    </div>
+    <div class="section-subtitle">
+      <span class="inline-fr">N'hésite pas à nous contacter, on répond à tous les messages !</span>
+      <span class="inline-en">Don't hesitate to contact us, we reply to all messages!</span>
+    </div>
+    <a href="mailto:nicolas.dimitriu@yahoo.fr" class="contact-btn">
+      <span>✉️</span>
+      <span>nicolas.dimitriu@yahoo.fr</span>
+    </a>
+  </div>
+</div>
+</div>
+
+<!-- LEGAL PREVIEW -->
+<div class="legal-preview">
+  <div class="legal-preview-inner">
+    <div class="section-label">
+      <span class="inline-fr">Documents légaux</span>
+      <span class="inline-en">Legal documents</span>
+    </div>
+    <div class="section-title">
+      <span class="inline-fr">Transparence et confidentialité</span>
+      <span class="inline-en">Transparency and privacy</span>
+    </div>
+    <div class="legal-links">
+      <a href="privacy.html" class="legal-link">
+        <span>🔒</span>
+        <span class="inline-fr">Politique de confidentialité</span>
+        <span class="inline-en">Privacy Policy</span>
+      </a>
+      <a href="terms.html" class="legal-link">
+        <span>📋</span>
+        <span class="inline-fr">Conditions d'utilisation</span>
+        <span class="inline-en">Terms of Use</span>
+      </a>
+      <a href="legal.html" class="legal-link">
+        <span>⚖️</span>
+        <span class="inline-fr">Mentions légales</span>
+        <span class="inline-en">Legal notice</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#" class="back-to-top" id="backToTop">↑</a>
 
 <!-- FOOTER -->
 <footer>
@@ -945,15 +979,15 @@
     </div>
   </div>
   <div class="footer-links">
-    <a href="#legal" onclick="showTab('privacy')">
+    <a href="privacy.html">
       <span class="inline-fr">Confidentialité</span>
       <span class="inline-en">Privacy</span>
     </a>
-    <a href="#legal" onclick="showTab('cgu')">
+    <a href="terms.html">
       <span class="inline-fr">CGU</span>
       <span class="inline-en">Terms</span>
     </a>
-    <a href="#legal" onclick="showTab('mentions')">
+    <a href="legal.html">
       <span class="inline-fr">Mentions légales</span>
       <span class="inline-en">Legal notice</span>
     </a>
@@ -967,14 +1001,9 @@
 
 <script>
   let currentLang = 'fr';
-  let currentTab = 'privacy';
 
   function toggleLang() {
     currentLang = currentLang === 'fr' ? 'en' : 'fr';
-    applyLang();
-  }
-
-  function applyLang() {
     const btn = document.getElementById('langBtn');
     btn.textContent = currentLang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
 
@@ -984,44 +1013,47 @@
     document.querySelectorAll('.inline-en').forEach(el => {
       el.style.display = currentLang === 'en' ? 'inline' : 'none';
     });
-
-    document.querySelectorAll('.nav-link-label').forEach(el => {
-      const txt = el.getAttribute('data-' + currentLang);
-      if (txt) el.textContent = txt;
-    });
-
-    document.querySelectorAll('.legal-tab[data-tab]').forEach(el => {
-      const txt = el.getAttribute('data-' + currentLang);
-      if (txt) el.textContent = txt;
-    });
-
-    showTab(currentTab);
   }
 
-  function showTab(tab) {
-    currentTab = tab;
-
-    document.querySelectorAll('.legal-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.legal-tab').forEach(el => el.classList.remove('active'));
-
-    const langSuffix = currentLang === 'en' ? '-en' : '';
-    const targetId = 'tab-' + tab + langSuffix;
-    const target = document.getElementById(targetId);
-    if (target) target.classList.add('active');
-
-    document.querySelectorAll('.legal-tab[data-tab="' + tab + '"]').forEach(el => el.classList.add('active'));
-
-    return false;
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
   }
 
-  document.querySelectorAll('.legal-tab').forEach(el => {
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
-      showTab(this.getAttribute('data-tab'));
-    });
+  function toggleFaq(button) {
+    const item = button.parentElement;
+    const wasActive = item.classList.contains('active');
+    
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+    
+    if (!wasActive) {
+      item.classList.add('active');
+    }
+  }
+
+  // Back to top button
+  window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
   });
 
-  applyLang();
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMobileMenu();
+    });
+  });
 </script>
 </body>
 </html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions d'utilisation – Street Workout Buddy</title>
+<meta name="description" content="Conditions générales d'utilisation de Street Workout Buddy. Découvrez les règles d'usage de notre application.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FFB400;
+    --orange-light: #FFCE55;
+    --orange-dark: #FF8800;
+    --cream: #FFFBF0;
+    --sand: #FFEFCF;
+    --brown: #7A4F00;
+    --brown-mid: #A86A00;
+    --white: #FFFFFF;
+    --black: #1A1200;
+    --gray-1: #FFF8E8;
+    --gray-2: #F0E6C8;
+    --gray-3: #D4C090;
+    --gray-4: #8A7040;
+    --font-head: 'Nunito', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+    --shadow-sm: 0 2px 8px rgba(160,100,0,0.12);
+    --shadow-md: 0 4px 20px rgba(160,100,0,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: var(--font-body);
+    color: var(--black);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--orange-dark);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .nav-logo span {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 17px;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .back-home {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+  }
+  .back-home:hover { background: rgba(255,255,255,0.15); color: white; }
+  .lang-btn {
+    background: rgba(255,255,255,0.18);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 12px;
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    transition: background 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.3); }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: var(--orange-dark);
+    padding: 60px 5% 80px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-family: var(--font-head);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .page-header p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── CONTENT ─── */
+  .content-wrapper {
+    max-width: 900px;
+    margin: -40px auto 0;
+    padding: 0 5% 80px;
+  }
+  .content-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-2);
+  }
+  .legal-date {
+    font-size: 13px;
+    color: var(--gray-4);
+    font-weight: 700;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box h2 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 40px 0 16px;
+  }
+  .content-box h2:first-of-type {
+    margin-top: 0;
+  }
+  .content-box h3 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--black);
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--sand);
+  }
+  .content-box p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 16px;
+  }
+  .content-box ul {
+    padding-left: 24px;
+    margin-bottom: 16px;
+  }
+  .content-box ul li {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4a3a10;
+    margin-bottom: 8px;
+  }
+  .content-box a {
+    color: var(--orange-dark);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .content-box a:hover {
+    text-decoration: underline;
+  }
+  .content-box strong {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ─── NAV TABS ─── */
+  .legal-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .legal-nav a {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--gray-2);
+    background: var(--gray-1);
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .legal-nav a.active, .legal-nav a:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 40px 5%;
+    text-align: center;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .footer-links a {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gray-4);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--gray-4);
+    border-top: 1px solid #333;
+    padding-top: 16px;
+  }
+
+  /* ─── LANG TOGGLE ─── */
+  .inline-fr, .inline-en { display: none; }
+  .inline-fr { display: inline; }
+  [data-lang-content] { display: none; }
+  [data-lang-content="fr"] { display: block; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .content-box { padding: 32px 24px; }
+    .legal-nav { flex-direction: column; }
+    .legal-nav a { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" alt="Buddy" onerror="this.style.display='none'">
+    <span>Street Workout Buddy</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="back-home">
+      <span class="inline-fr">← Accueil</span>
+      <span class="inline-en">← Home</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇬🇧 EN</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>
+    <span class="inline-fr">📋 Conditions d'utilisation</span>
+    <span class="inline-en">📋 Terms of Use</span>
+  </h1>
+  <p>
+    <span class="inline-fr">Les règles d'utilisation de l'application Street Workout Buddy.</span>
+    <span class="inline-en">The rules for using the Street Workout Buddy app.</span>
+  </p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+  <div class="legal-nav">
+    <a href="privacy.html">
+      <span class="inline-fr">🔒 Confidentialité</span>
+      <span class="inline-en">🔒 Privacy</span>
+    </a>
+    <a href="terms.html" class="active">
+      <span class="inline-fr">📋 CGU</span>
+      <span class="inline-en">📋 Terms</span>
+    </a>
+    <a href="legal.html">
+      <span class="inline-fr">⚖️ Mentions légales</span>
+      <span class="inline-en">⚖️ Legal notice</span>
+    </a>
+  </div>
+
+  <div class="content-box">
+    <!-- VERSION FRANÇAISE -->
+    <div data-lang-content="fr">
+      <p class="legal-date">Dernière mise à jour : juin 2025</p>
+
+      <h3>1. Objet</h3>
+      <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application mobile Street Workout Buddy, éditée par Nicolas Dimitriu, micro-entrepreneur.</p>
+
+      <h3>2. Acceptation</h3>
+      <p>En téléchargeant ou en utilisant l'application, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
+
+      <h3>3. Accès à l'application</h3>
+      <p>L'application est accessible gratuitement dans sa version de base. Certaines fonctionnalités avancées (programmes personnalisés, contenu premium) nécessitent un abonnement mensuel ou annuel souscrit via l'App Store d'Apple.</p>
+
+      <h3>4. Abonnement premium</h3>
+      <ul>
+        <li>Les abonnements sont gérés et facturés par Apple via l'App Store.</li>
+        <li>Le renouvellement est automatique sauf résiliation au moins 24h avant la fin de la période en cours.</li>
+        <li>La gestion et résiliation de l'abonnement s'effectue dans les réglages de votre compte Apple.</li>
+        <li>Aucun remboursement n'est accordé pour les périodes déjà entamées, conformément à la politique Apple.</li>
+      </ul>
+
+      <h3>5. Conditions d'âge</h3>
+      <p>L'utilisation de l'application est réservée aux personnes âgées de 13 ans et plus. Les utilisateurs mineurs (entre 13 et 18 ans) doivent disposer de l'autorisation d'un parent ou tuteur légal.</p>
+
+      <h3>6. Règles d'utilisation</h3>
+      <p>En utilisant l'application, vous vous engagez à :</p>
+      <ul>
+        <li>Ne pas utiliser l'application à des fins illégales ou frauduleuses</li>
+        <li>Ne pas publier de commentaires offensants, trompeurs ou inappropriés</li>
+        <li>Ne pas tenter de pirater, décompiler ou altérer l'application</li>
+        <li>Consulter un médecin avant de commencer tout programme d'entraînement si nécessaire</li>
+      </ul>
+
+      <h3>7. Responsabilité</h3>
+      <p>Street Workout Buddy est une application d'aide à l'entraînement. Nicolas Dimitriu ne saurait être tenu responsable des blessures ou dommages résultant d'une mauvaise utilisation de l'application ou d'un entraînement inadapté à votre condition physique. Il est recommandé de consulter un professionnel de santé avant de débuter tout programme sportif.</p>
+
+      <h3>8. Propriété intellectuelle</h3>
+      <p>L'ensemble des contenus de l'application (textes, images, mascotte Buddy, programmes, interface) sont la propriété exclusive de Nicolas Dimitriu et sont protégés par le droit de la propriété intellectuelle. Toute reproduction sans autorisation est interdite.</p>
+
+      <h3>9. Modification des CGU</h3>
+      <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés par notification dans l'application ou par e-mail.</p>
+
+      <h3>10. Droit applicable</h3>
+      <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    </div>
+
+    <!-- ENGLISH VERSION -->
+    <div data-lang-content="en">
+      <p class="legal-date">Last updated: June 2025</p>
+
+      <h3>1. Purpose</h3>
+      <p>These Terms of Use govern access to and use of the Street Workout Buddy mobile application, published by Nicolas Dimitriu, sole trader.</p>
+
+      <h3>2. Acceptance</h3>
+      <p>By downloading or using the app, you unconditionally accept these Terms. If you do not accept them, please do not use the app.</p>
+
+      <h3>3. Access</h3>
+      <p>The app is free in its basic version. Certain advanced features (personalised programs, premium content) require a monthly or annual subscription purchased through the Apple App Store.</p>
+
+      <h3>4. Premium subscription</h3>
+      <ul>
+        <li>Subscriptions are managed and billed by Apple via the App Store.</li>
+        <li>Renewal is automatic unless cancelled at least 24 hours before the end of the current period.</li>
+        <li>Subscription management and cancellation is done in your Apple account settings.</li>
+        <li>No refunds are issued for periods already started, in accordance with Apple's policy.</li>
+      </ul>
+
+      <h3>5. Age requirements</h3>
+      <p>Use of the app is restricted to persons aged 13 and over. Minor users (between 13 and 18) must have parental or legal guardian consent.</p>
+
+      <h3>6. Usage rules</h3>
+      <p>By using the app, you agree to:</p>
+      <ul>
+        <li>Not use the app for illegal or fraudulent purposes</li>
+        <li>Not post offensive, misleading or inappropriate comments</li>
+        <li>Not attempt to hack, decompile or alter the app</li>
+        <li>Consult a doctor before starting any training program if necessary</li>
+      </ul>
+
+      <h3>7. Liability</h3>
+      <p>Street Workout Buddy is a training assistance app. Nicolas Dimitriu cannot be held liable for injuries or damage resulting from misuse of the app or training unsuited to your physical condition. It is recommended to consult a healthcare professional before starting any sports program.</p>
+
+      <h3>8. Intellectual property</h3>
+      <p>All app content (texts, images, Buddy mascot, programs, interface) is the exclusive property of Nicolas Dimitriu and is protected by intellectual property law. Any reproduction without authorisation is prohibited.</p>
+
+      <h3>9. Changes to Terms</h3>
+      <p>We reserve the right to modify these Terms at any time. Users will be informed by in-app notification or email.</p>
+
+      <h3>10. Governing law</h3>
+      <p>These Terms are governed by French law. In case of dispute, French courts shall have sole jurisdiction.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">
+      <span class="inline-fr">Accueil</span>
+      <span class="inline-en">Home</span>
+    </a>
+    <a href="privacy.html">
+      <span class="inline-fr">Confidentialité</span>
+      <span class="inline-en">Privacy</span>
+    </a>
+    <a href="terms.html">
+      <span class="inline-fr">CGU</span>
+      <span class="inline-en">Terms</span>
+    </a>
+    <a href="legal.html">
+      <span class="inline-fr">Mentions légales</span>
+      <span class="inline-en">Legal notice</span>
+    </a>
+    <a href="mailto:nicolas.dimitriu@yahoo.fr">Contact</a>
+  </div>
+  <div class="footer-copy">
+    <span class="inline-fr">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+    <span class="inline-en">© 2025 Nicolas Dimitriu — Street Workout Buddy</span>
+  </div>
+</footer>
+
+<script>
+  let currentLang = 'fr';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    const btn = document.getElementById('langBtn');
+    btn.textContent = currentLang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
+
+    document.querySelectorAll('.inline-fr').forEach(el => {
+      el.style.display = currentLang === 'fr' ? 'inline' : 'none';
+    });
+    document.querySelectorAll('.inline-en').forEach(el => {
+      el.style.display = currentLang === 'en' ? 'inline' : 'none';
+    });
+
+    document.querySelectorAll('[data-lang-content]').forEach(el => {
+      el.style.display = 'none';
+    });
+    const activeContent = document.querySelector(`[data-lang-content="${currentLang}"]`);
+    if (activeContent) {
+      activeContent.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
