@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation email – Street Workout Buddy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root {
+    --orange: #FFB400;
+    --orange-dark: #FF8800;
+    --cream: #FFFBF0;
+    --sand: #FFEFCF;
+    --brown-mid: #A86A00;
+    --white: #FFFFFF;
+    --black: #1A1200;
+    --gray-1: #FFF8E8;
+    --gray-2: #F0E6C8;
+    --gray-4: #8A7040;
+    --green: #16A34A;
+    --green-light: #DCFCE7;
+    --green-border: #86EFAC;
+    --red-light: #FEE2E2;
+    --font-head: 'Nunito', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --radius-lg: 24px;
+    --radius-pill: 100px;
+    --shadow-md: 0 4px 20px rgba(160,100,0,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    font-family: var(--font-body);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--orange-dark);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { width: 38px; height: 38px; border-radius: 10px; object-fit: cover; }
+  .nav-logo span { font-family: var(--font-head); font-weight: 900; font-size: 17px; color: white; }
+  .back-home {
+    font-family: var(--font-head); font-weight: 700; font-size: 13px;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    padding: 6px 16px; border-radius: var(--radius-pill); transition: background 0.15s;
+  }
+  .back-home:hover { background: rgba(255,255,255,0.15); color: white; }
+  .lang-btn {
+    background: rgba(255,255,255,0.18); border: none; cursor: pointer;
+    font-family: var(--font-head); font-weight: 800; font-size: 12px; color: white;
+    padding: 6px 14px; border-radius: var(--radius-pill); transition: background 0.15s;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.3); }
+  .page-header {
+    background: var(--orange-dark);
+    padding: 60px 5% 80px; text-align: center;
+  }
+  .page-header h1 {
+    font-family: var(--font-head); font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900; color: white; letter-spacing: -1px; margin-bottom: 12px;
+  }
+  .page-header p { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .content-wrapper {
+    max-width: 520px; margin: -40px auto 0;
+    padding: 0 5% 80px; flex: 1;
+  }
+  .status-card {
+    background: white; border-radius: var(--radius-lg);
+    padding: 48px 40px; box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-2); text-align: center;
+  }
+  .state { display: none; flex-direction: column; align-items: center; gap: 20px; }
+  .state.active { display: flex; }
+  .icon-wrap {
+    width: 96px; height: 96px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; margin: 0 auto;
+  }
+  .icon-wrap.loading { background: var(--gray-1); border: 2.5px solid var(--gray-2); }
+  .icon-wrap.success { background: var(--green-light); border: 2.5px solid var(--green-border); }
+  .icon-wrap.error   { background: var(--red-light); border: 2.5px solid #FECACA; }
+  .spinner {
+    width: 48px; height: 48px;
+    border: 4px solid var(--gray-2); border-top-color: var(--orange-dark);
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .state-title { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--black); }
+  .state-body { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--gray-4); line-height: 1.65; }
+  .state-body strong { color: var(--black); }
+  .btn {
+    display: inline-block; background: var(--orange-dark); color: white;
+    font-family: var(--font-head); font-weight: 900; font-size: 15px;
+    padding: 14px 32px; border-radius: var(--radius-pill);
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.15s; box-shadow: 0 4px 16px rgba(255,136,0,0.25);
+  }
+  .btn:hover { opacity: 0.88; }
+  .btn-ghost {
+    background: var(--gray-1); color: var(--brown-mid);
+    border: 2px solid var(--gray-2); box-shadow: none;
+  }
+  .btn-ghost:hover { background: var(--gray-2); opacity: 1; }
+  .note-box {
+    background: var(--gray-1); border-radius: 18px;
+    border: 1.5px solid var(--gray-2); padding: 16px 20px;
+    font-size: 13px; color: var(--gray-4); font-weight: 600; line-height: 1.6;
+  }
+  .inline-fr, .inline-en { display: none; }
+  .inline-fr { display: inline; }
+  footer {
+    background: var(--black); padding: 40px 5%; text-align: center;
+  }
+  .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-links a { font-family: var(--font-head); font-weight: 700; font-size: 13px; color: var(--gray-4); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy { font-size: 12px; color: var(--gray-4); border-top: 1px solid #333; padding-top: 16px; }
+  @media (max-width: 640px) { .status-card { padding: 32px 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" alt="Buddy" onerror="this.style.display='none'">
+    <span>Street Workout Buddy</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="index.html" class="back-home">
+      <span class="inline-fr">← Accueil</span>
+      <span class="inline-en">← Home</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇬🇧 EN</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>
+    <span class="inline-fr">✉️ Confirmation email</span>
+    <span class="inline-en">✉️ Email confirmation</span>
+  </h1>
+  <p>
+    <span class="inline-fr">Validation de ta nouvelle adresse email</span>
+    <span class="inline-en">Validating your new email address</span>
+  </p>
+</div>
+
+<div class="content-wrapper">
+  <div class="status-card">
+
+    <div class="state active" id="stateLoading">
+      <div class="icon-wrap loading"><div class="spinner"></div></div>
+      <p class="state-title">
+        <span class="inline-fr">Vérification en cours…</span>
+        <span class="inline-en">Verifying…</span>
+      </p>
+      <p class="state-body">
+        <span class="inline-fr">Patiente quelques secondes.</span>
+        <span class="inline-en">Please wait a moment.</span>
+      </p>
+    </div>
+
+    <div class="state" id="stateSuccess">
+      <div class="icon-wrap success">✅</div>
+      <p class="state-title">
+        <span class="inline-fr">Email confirmé !</span>
+        <span class="inline-en">Email confirmed!</span>
+      </p>
+      <p class="state-body">
+        <span class="inline-fr">Ton adresse email a bien été mise à jour.<br>Tu peux retourner dans l'application.</span>
+        <span class="inline-en">Your email address has been successfully updated.<br>You can go back to the app.</span>
+      </p>
+      <div class="note-box">
+        <span class="inline-fr">💡 Utilise ta nouvelle adresse email pour te connecter lors de ta prochaine session.</span>
+        <span class="inline-en">💡 Use your new email address to log in next time.</span>
+      </div>
+      <a href="swbuddy://" class="btn">
+        <span class="inline-fr">📱 Ouvrir l'application</span>
+        <span class="inline-en">📱 Open the app</span>
+      </a>
+    </div>
+
+    <div class="state" id="stateError">
+      <div class="icon-wrap error">❌</div>
+      <p class="state-title">
+        <span class="inline-fr">Lien invalide ou expiré</span>
+        <span class="inline-en">Invalid or expired link</span>
+      </p>
+      <p class="state-body">
+        <span class="inline-fr">Ce lien n'est plus valide. Il a peut-être expiré ou déjà été utilisé.</span>
+        <span class="inline-en">This link is no longer valid. It may have expired or already been used.</span>
+      </p>
+      <div class="note-box">
+        <span class="inline-fr">⏱️ Les liens sont valables <strong>24 heures</strong>. Recommence la procédure depuis l'application.</span>
+        <span class="inline-en">⏱️ Links are valid for <strong>24 hours</strong>. Restart the process from the app.</span>
+      </div>
+      <a href="swbuddy://" class="btn">
+        <span class="inline-fr">📱 Retourner dans l'app</span>
+        <span class="inline-en">📱 Go back to the app</span>
+      </a>
+      <a href="index.html" class="btn btn-ghost">
+        <span class="inline-fr">← Accueil</span>
+        <span class="inline-en">← Home</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html"><span class="inline-fr">Accueil</span><span class="inline-en">Home</span></a>
+    <a href="privacy.html"><span class="inline-fr">Confidentialité</span><span class="inline-en">Privacy</span></a>
+    <a href="terms.html"><span class="inline-fr">CGU</span><span class="inline-en">Terms</span></a>
+    <a href="legal.html"><span class="inline-fr">Mentions légales</span><span class="inline-en">Legal notice</span></a>
+    <a href="mailto:streetworkoutbuddy@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Nicolas Dimitriu — Street Workout Buddy</div>
+</footer>
+
+<script>
+  const SUPABASE_URL = 'https://wtjocxssrqjzmdvcplxr.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0am9jeHNzcnFqem1kdmNwbHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNDY2NTgsImV4cCI6MjA4ODcyMjY1OH0.2z_pvcqy9YvBCo2jQVPuIiI2xujclBFPso_37-lZBPI';
+  const { createClient } = supabase;
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  let currentLang = 'fr';
+  function toggleLang() {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    document.getElementById('langBtn').textContent = currentLang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
+    document.querySelectorAll('.inline-fr').forEach(el => el.style.display = currentLang === 'fr' ? 'inline' : 'none');
+    document.querySelectorAll('.inline-en').forEach(el => el.style.display = currentLang === 'en' ? 'inline' : 'none');
+  }
+
+  function showState(id) {
+    ['stateLoading', 'stateSuccess', 'stateError'].forEach(s => {
+      document.getElementById(s).classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  async function handleConfirmation() {
+    const hash = window.location.hash.substring(1);
+    const query = window.location.search.substring(1);
+    const raw = hash || query;
+
+    if (!raw) { showState('stateError'); return; }
+
+    const params = Object.fromEntries(new URLSearchParams(raw));
+
+    if (params.error) { showState('stateError'); return; }
+
+    // Token PKCE
+    if (params.token_hash && params.type) {
+      const { error } = await sb.auth.verifyOtp({
+        token_hash: params.token_hash,
+        type: params.type,
+      });
+      showState(error ? 'stateError' : 'stateSuccess');
+      return;
+    }
+
+    // Token legacy
+    if (params.access_token && params.refresh_token) {
+      const { error } = await sb.auth.setSession({
+        access_token: params.access_token,
+        refresh_token: params.refresh_token,
+      });
+      showState(error ? 'stateError' : 'stateSuccess');
+      return;
+    }
+
+    showState('stateError');
+  }
+
+  document.addEventListener('DOMContentLoaded', handleConfirmation);
+</script>
+</body>
+</html>
