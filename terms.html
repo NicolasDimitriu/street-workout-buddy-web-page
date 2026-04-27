@@ -193,6 +193,58 @@
     font-weight: 700;
   }
 
+  /* ─── EULA BANNER ─── */
+  .eula-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--gray-1);
+    border: 2px solid var(--orange);
+    border-radius: var(--radius-md);
+    padding: 28px 28px 28px 24px;
+    margin: 8px 0 32px;
+  }
+  .eula-banner-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .eula-banner-body {
+    flex: 1;
+  }
+  .eula-banner-body strong {
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--black);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .eula-banner-body p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .eula-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange-dark);
+    color: white !important;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: var(--radius-pill);
+    text-decoration: none !important;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .eula-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    text-decoration: none !important;
+  }
+
   /* ─── NAV TABS ─── */
   .legal-nav {
     display: flex;
@@ -259,6 +311,7 @@
     .content-box { padding: 32px 24px; }
     .legal-nav { flex-direction: column; }
     .legal-nav a { text-align: center; }
+    .eula-banner { flex-direction: column; gap: 12px; }
   }
 </style>
 </head>
@@ -309,97 +362,111 @@
   </div>
 
   <div class="content-box">
+
     <!-- VERSION FRANÇAISE -->
     <div data-lang-content="fr">
       <p class="legal-date">Dernière mise à jour : juin 2025</p>
 
-      <h3>1. Objet</h3>
-      <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application mobile Street Workout Buddy, éditée par Nicolas Dimitriu, micro-entrepreneur, dont le siège social est situé au 4 VILLA de Saint-Mandé, 75012 Paris, immatriculé sous le SIRET 88789607400036.</p>
+      <div class="eula-banner">
+        <div class="eula-banner-icon">🍎</div>
+        <div class="eula-banner-body">
+          <strong>Contrat de licence d'utilisation finale (EULA) Apple</strong>
+          <p>
+            Street Workout Buddy utilise le <strong>contrat de licence d'utilisateur final standard d'Apple</strong>
+            (Apple Standard EULA) comme conditions d'utilisation de l'application.
+            Ce contrat s'applique à toute utilisation de l'application, incluant les achats intégrés et abonnements.
+          </p>
+          <a
+            href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="eula-btn"
+          >
+            📄 Lire l'EULA Apple
+          </a>
+        </div>
+      </div>
 
-      <h3>2. Acceptation</h3>
-      <p>En téléchargeant ou en utilisant l'application, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
-
-      <h3>3. Accès à l'application</h3>
-      <p>L'application est accessible gratuitement dans sa version de base. Certaines fonctionnalités avancées (programmes personnalisés, contenu premium) nécessitent un abonnement mensuel ou annuel souscrit via l'App Store d'Apple.</p>
-
-      <h3>4. Abonnement premium</h3>
+      <h3>À propos de cet accord</h3>
+      <p>
+        En téléchargeant ou en utilisant Street Workout Buddy, vous acceptez les termes du contrat de licence
+        d'utilisateur final standard d'Apple accessible via le lien ci-dessus.
+      </p>
+      <p>
+        Ce contrat régit notamment :
+      </p>
       <ul>
-        <li>Les abonnements sont gérés et facturés par Apple via l'App Store.</li>
-        <li>Le renouvellement est automatique sauf résiliation au moins 24h avant la fin de la période en cours.</li>
-        <li>La gestion et résiliation de l'abonnement s'effectue dans les réglages de votre compte Apple.</li>
-        <li>Aucun remboursement n'est accordé pour les périodes déjà entamées, conformément à la politique Apple.</li>
+        <li>Les droits d'utilisation de l'application</li>
+        <li>Les conditions relatives aux achats intégrés et abonnements premium</li>
+        <li>Les limitations de responsabilité</li>
+        <li>Les règles de résiliation et remboursement</li>
       </ul>
 
-      <h3>5. Conditions d'âge</h3>
+      <h3>Conditions d'âge</h3>
       <p>L'utilisation de l'application est réservée aux personnes âgées de 13 ans et plus. Les utilisateurs mineurs (entre 13 et 18 ans) doivent disposer de l'autorisation d'un parent ou tuteur légal.</p>
 
-      <h3>6. Règles d'utilisation</h3>
-      <p>En utilisant l'application, vous vous engagez à :</p>
-      <ul>
-        <li>Ne pas utiliser l'application à des fins illégales ou frauduleuses</li>
-        <li>Ne pas publier de commentaires offensants, trompeurs ou inappropriés</li>
-        <li>Ne pas tenter de pirater, décompiler ou altérer l'application</li>
-        <li>Consulter un médecin avant de commencer tout programme d'entraînement si nécessaire</li>
-      </ul>
-
-      <h3>7. Responsabilité</h3>
+      <h3>Responsabilité liée à l'activité physique</h3>
       <p>Street Workout Buddy est une application d'aide à l'entraînement. Nicolas Dimitriu ne saurait être tenu responsable des blessures ou dommages résultant d'une mauvaise utilisation de l'application ou d'un entraînement inadapté à votre condition physique. Il est recommandé de consulter un professionnel de santé avant de débuter tout programme sportif.</p>
 
-      <h3>8. Propriété intellectuelle</h3>
+      <h3>Propriété intellectuelle</h3>
       <p>L'ensemble des contenus de l'application (textes, images, mascotte Buddy, programmes, interface) sont la propriété exclusive de Nicolas Dimitriu et sont protégés par le droit de la propriété intellectuelle. Toute reproduction sans autorisation est interdite.</p>
 
-      <h3>9. Modification des CGU</h3>
-      <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés par notification dans l'application ou par e-mail.</p>
-
-      <h3>10. Droit applicable</h3>
-      <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+      <h3>Contact</h3>
+      <p>Pour toute question concernant ces conditions : <a href="mailto:streetworkoutbuddy@gmail.com">streetworkoutbuddy@gmail.com</a></p>
     </div>
 
     <!-- ENGLISH VERSION -->
     <div data-lang-content="en">
       <p class="legal-date">Last updated: June 2025</p>
 
-      <h3>1. Purpose</h3>
-      <p>These Terms of Use govern access to and use of the Street Workout Buddy mobile application, published by Nicolas Dimitriu, sole trader, whose registered office is located at 4 VILLA de Saint-Mandé, 75012 Paris, France, registered under SIRET number 88789607400036.</p>
+      <div class="eula-banner">
+        <div class="eula-banner-icon">🍎</div>
+        <div class="eula-banner-body">
+          <strong>Apple End User License Agreement (EULA)</strong>
+          <p>
+            Street Workout Buddy uses <strong>Apple's Standard End User License Agreement</strong>
+            as the terms of use for the application.
+            This agreement applies to all use of the app, including in-app purchases and subscriptions.
+          </p>
+          <a
+            href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="eula-btn"
+          >
+            📄 Read the Apple EULA
+          </a>
+        </div>
+      </div>
 
-      <h3>2. Acceptance</h3>
-      <p>By downloading or using the app, you unconditionally accept these Terms. If you do not accept them, please do not use the app.</p>
-
-      <h3>3. Access</h3>
-      <p>The app is free in its basic version. Certain advanced features (personalised programs, premium content) require a monthly or annual subscription purchased through the Apple App Store.</p>
-
-      <h3>4. Premium subscription</h3>
+      <h3>About this agreement</h3>
+      <p>
+        By downloading or using Street Workout Buddy, you agree to the terms of Apple's Standard
+        End User License Agreement accessible via the link above.
+      </p>
+      <p>
+        This agreement covers in particular:
+      </p>
       <ul>
-        <li>Subscriptions are managed and billed by Apple via the App Store.</li>
-        <li>Renewal is automatic unless cancelled at least 24 hours before the end of the current period.</li>
-        <li>Subscription management and cancellation is done in your Apple account settings.</li>
-        <li>No refunds are issued for periods already started, in accordance with Apple's policy.</li>
+        <li>Rights to use the application</li>
+        <li>Terms related to in-app purchases and premium subscriptions</li>
+        <li>Limitation of liability</li>
+        <li>Cancellation and refund rules</li>
       </ul>
 
-      <h3>5. Age requirements</h3>
+      <h3>Age requirements</h3>
       <p>Use of the app is restricted to persons aged 13 and over. Minor users (between 13 and 18) must have parental or legal guardian consent.</p>
 
-      <h3>6. Usage rules</h3>
-      <p>By using the app, you agree to:</p>
-      <ul>
-        <li>Not use the app for illegal or fraudulent purposes</li>
-        <li>Not post offensive, misleading or inappropriate comments</li>
-        <li>Not attempt to hack, decompile or alter the app</li>
-        <li>Consult a doctor before starting any training program if necessary</li>
-      </ul>
-
-      <h3>7. Liability</h3>
+      <h3>Physical activity liability</h3>
       <p>Street Workout Buddy is a training assistance app. Nicolas Dimitriu cannot be held liable for injuries or damage resulting from misuse of the app or training unsuited to your physical condition. It is recommended to consult a healthcare professional before starting any sports program.</p>
 
-      <h3>8. Intellectual property</h3>
+      <h3>Intellectual property</h3>
       <p>All app content (texts, images, Buddy mascot, programs, interface) is the exclusive property of Nicolas Dimitriu and is protected by intellectual property law. Any reproduction without authorisation is prohibited.</p>
 
-      <h3>9. Changes to Terms</h3>
-      <p>We reserve the right to modify these Terms at any time. Users will be informed by in-app notification or email.</p>
-
-      <h3>10. Governing law</h3>
-      <p>These Terms are governed by French law. In case of dispute, French courts shall have sole jurisdiction.</p>
+      <h3>Contact</h3>
+      <p>For any questions about these terms: <a href="mailto:streetworkoutbuddy@gmail.com">streetworkoutbuddy@gmail.com</a></p>
     </div>
+
   </div>
 </div>
 
